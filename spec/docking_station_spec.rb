@@ -26,8 +26,14 @@ describe DockingStation do
 	it "should not accept a bike when it's full" do
 		20.times {station.dock(bike)}
 		expect(lambda {station.dock(bike)}).to raise_error(RuntimeError) #why does this need the lamda?
+	end
 
-	#it "should provide the list of available bikes" do
+	it "should provide the list of available bikes" do
+		working_bike, broken_bike = Bike.new, Bike.new
+		broken_bike.break! #need to break the bike to be broken
+		station.dock(working_bike)
+		station.dock(broken_bike)
+		expect(station.available_bikes).to eq([working_bike]) #working bikes has enter the array
 
 
 	end
