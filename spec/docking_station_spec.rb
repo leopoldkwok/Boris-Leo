@@ -34,8 +34,6 @@ describe DockingStation do
 		station.dock(working_bike)
 		station.dock(broken_bike)
 		expect(station.available_bikes).to eq([working_bike]) #working bikes has enter the array
-
-
 	end
 
 
