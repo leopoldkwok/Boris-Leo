@@ -13,7 +13,8 @@ class DockingStation
 	end
 
 	def dock(bike)
-		@bikes << bike
+		raise "The docking station is full" if full?
+		@bikes << bike # this is cause for the 19th time it does not raise the error
 	end
 
 	def release(bike)
